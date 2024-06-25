@@ -15,7 +15,7 @@ exports.writeBoard = async(req, res, next) => {
         next(err);
     }
 }
-exports.renderBoard = async(req, res, error) => {
+exports.renderBoard = async(req, res, next) => {
     try{
         const board = await Board.findAll({
             include:{
