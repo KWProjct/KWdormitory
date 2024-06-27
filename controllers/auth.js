@@ -22,3 +22,6 @@ exports.join = async (req, res, next) => {
 }
 
 
+exports.login = async(req, res, next) => {
+    
+}
