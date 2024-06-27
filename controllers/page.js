@@ -4,8 +4,9 @@ exports.renderJoin = (req, res) => {
     res.render('join', {title: '회원 가입'});
 };
 
-exports.renderMain = (req, res) => {
+exports.renderMain = (req, res, next) => {
     res.render('main', {title: '메인 페이지'});
+
 }
 
 exports.jusoPop = (req, res) => { 
