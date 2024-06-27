@@ -36,3 +36,8 @@ exports.renderBoard1 = async (req, res, next) => {
         next(err);
     }
 }
+
+
+exports.login = (req, res) => {
+    res.render('login');
+}

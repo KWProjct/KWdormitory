@@ -1,6 +1,6 @@
+const bcrypt = require('bcrypt');
+const User = require('../models/user');
 
-
-/*
 exports.join = async (req, res, next) => {
     const {email, nick, password} = req.body;
     try{
@@ -20,4 +20,5 @@ exports.join = async (req, res, next) => {
         return next(error);
     }
 }
-*/
+
+
