@@ -8,7 +8,7 @@ exports.renderMain = (req, res, next) => {
     res.render('main', {title: '메인 페이지'});
 
 }
-
+/*
 exports.jusoPop = (req, res) => { 
     res.render('jusopop',{title: '주소 찾기'});
 }
@@ -17,7 +17,7 @@ exports.jusoSave = (req, res) => {
     res.locals = req.body;
     res.render('jusopop');
 }
-
+*/
 exports.renderBoard1 = async (req, res, next) => {
     try{
         const board1 = await Board.findAll({
