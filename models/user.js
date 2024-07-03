@@ -26,7 +26,7 @@ class User extends Sequelize.Model{
             },
             ADD2: {
                 type: Sequelize.STRING(100),
-                allowNull: false,
+                //allowNull: false,
                 unique: false,
             },
             PHONE: {
@@ -38,6 +38,10 @@ class User extends Sequelize.Model{
               allowNull: false,
               unique: true,
             },
+            GENDER: {
+              type: Sequelize.ENUM("M", 'F'),
+              allowNull: false,
+            }
             
           }, {
             sequelize,
