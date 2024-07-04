@@ -2,17 +2,20 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
 exports.join = async (req, res, next) => {
-    const {email, nick, password} = req.body;
+    const {id, pw, phone, gender, city, roomno} = req.body;
     try{
-        const exUser = await User.findOne({where: {ID}});
+        const exUser = await User.findOne({where: {id}});
         if(exUser){
             return res.redirect('/join?error=exist');
         }
-        const hash = await bcrtpt.hash(password, 12);
+        const hash = await bcrtpt.hash(pw, 12);
         await User.create({
             email,
-            nick,
-            password: hash,
+            pw: hash,
+            city,
+            phone,
+            roomno,
+            gender
         });
         return res.redirect('/');
     }catch(error){

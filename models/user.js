@@ -24,11 +24,11 @@ class User extends Sequelize.Model{
                 allowNull: false,
                 unique: false,
             },
-            ADD2: {
+            /*ADD2: {
                 type: Sequelize.STRING(100),
                 //allowNull: false,
                 unique: false,
-            },
+            },*/
             PHONE: {
               type: Sequelize.STRING(50),
               allowNull: false,

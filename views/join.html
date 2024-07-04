@@ -34,11 +34,19 @@
         <br>
         <input type="number" name="roomno" placeholder="방 호수">
         <br>
+        <input type="tel" onfocus="this.placeholder=''" maxlegth="13" oninput="autoHyphen(this)" pattern="010-[0-9]{3,4}-[0-9]{4}"   placeholder="휴대폰 번호" id="phone"
+        autocomplete="off" name="phone"/>
+        <br>
         <input type="button" name="submit" id="submit" value="회원가입하기">
       </form>
     </div>
   </div>
     <script language="javascript">
+      const autoHyphen = (target) => {
+      target.value = target.value
+     .replace(/[^0-9]/g, '')
+     .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
+    }
       function goPopup() {
         var pop = window.open(
           '/jusopop',
