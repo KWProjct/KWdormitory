@@ -5,7 +5,7 @@
     <h1>{{title}}</h1>
     <p>Welcome to {{title}}</p>
     <div>
-      <form name="form">
+      <form name="form" action="/auth/join" method="post">
         <input type="text" name="id" placeholder="ID">
         <br>
         <input type="text" name="pw" placeholder="password">
@@ -37,7 +37,7 @@
         <input type="tel" onfocus="this.placeholder=''" maxlegth="13" oninput="autoHyphen(this)" pattern="010-[0-9]{3,4}-[0-9]{4}"   placeholder="휴대폰 번호" id="phone"
         autocomplete="off" name="phone"/>
         <br>
-        <input type="button" name="submit" id="submit" value="회원가입하기">
+        <input type="submit" name="submit" id="submit" value="회원가입하기">
       </form>
     </div>
   </div>
