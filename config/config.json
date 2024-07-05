@@ -2,7 +2,7 @@
     "development": {
       "username": "root",
       "password": "skdnjsgh99",
-      "database": "tt",
+      "database": "kwdorm",
       "host": "127.0.0.1",
       "dialect": "mysql"
     },
