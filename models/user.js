@@ -15,7 +15,7 @@ class User extends Sequelize.Model{
               unique: true,
             },
             PW: {
-                type: Sequelize.STRING(50),
+                type: Sequelize.STRING(100),
                 allowNull: false,
                 unique: false,
             },
