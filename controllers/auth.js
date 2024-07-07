@@ -7,6 +7,7 @@ exports.join = async (req, res, next) => {
     try{
         const exUser = await User.findOne({where: {id}});
         if(exUser){
+            res.send('중복된 아이디입니다.');
             return res.redirect('/join?error=exist');
         }
         const hash = await bcrypt.hash(pw, 12);
@@ -18,7 +19,7 @@ exports.join = async (req, res, next) => {
             ROOMNO: roomno,
             GENDER: gender
         });
-        return res.redirect('/');
+        return res.redirect('/login');
     }catch(error){
         console.error(error);
         return next(error);
@@ -26,6 +27,6 @@ exports.join = async (req, res, next) => {
 }
 
 
-exports.login = async(req, res, next) => {
+exports.login = (req, res, next) => {
     
 }
