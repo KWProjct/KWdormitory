@@ -9,7 +9,8 @@ module.exports = () => {
     {
         usernameField: 'id',
         passwordField: 'password',
-        passReqToCallback: true,
+        session: true,
+        passReqToCallback: false,
     }, 
     async(id, password, done) => {
         try{

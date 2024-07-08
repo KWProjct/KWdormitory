@@ -7,7 +7,6 @@ exports.join = async (req, res, next) => {
     try{
         const exUser = await User.findOne({where: {id}});
         if(exUser){
-            res.send('중복된 아이디입니다.');
             return res.redirect('/join?error=exist');
         }
         const hash = await bcrypt.hash(pw, 12);
