@@ -16,8 +16,7 @@ done의 인자 구성
 module.exports = () => {
   passport.serializeUser((user, done) => {// Strategy 성공 시 호출
     // 여기의 user.id가 req.session.passport.user에 저장
-    console.log(user);
-    done(null, user.id); // 여기의 user.id가 deserializeUser의 첫 번째 매개변수로 이동
+    done(null, user.ID); // 여기의 user.id가 deserializeUser의 첫 번째 매개변수로 이동
   });
 
   passport.deserializeUser(async (id, done) => {
