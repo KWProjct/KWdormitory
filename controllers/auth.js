@@ -28,7 +28,7 @@ exports.join = async (req, res, next) => {
 
 
 exports.login = (req, res, next) => {
-    passport.authenticate("local",(err, user, info) => {
+    passport.authenticate('local',(err, user, info) => {
         //콜백 함수의 인자는 done으로 전달된 인자들을 의미한다.
         if(err){
             console.error(err);
@@ -38,7 +38,7 @@ exports.login = (req, res, next) => {
             console.log(info);
             return res.status(401).send(info.message);
         }
-        return req.login(user, async(loginErr) => {
+        return req.login(user, (loginErr) => {
             if(loginErr){
                 console.error(loginErr);
                 return next(loginErr);

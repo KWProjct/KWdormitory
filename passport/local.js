@@ -17,10 +17,9 @@ module.exports = () => {
             const user = await(User.findOne({
                 where:{id}
             }));
-            if (!user) { return done(null, false, {message :"존재하지 않는 사용자입니다."}); }
-            console.log("입력한 비밀번호",password);
             console.log("유저정보",user);
-            const result = await bcrypt.compare(password, user.password);
+            if (!user) { return done(null, false, {message :"존재하지 않는 사용자입니다."}); }
+            const result = await bcrypt.compare(password, user.PW);
             if (!result) { return done(null, false, {message: "비밀번호가 일치하지 않습니다."})};
             return done(null, user);
         }catch(error){
