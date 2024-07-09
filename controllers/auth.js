@@ -47,3 +47,14 @@ exports.login = (req, res, next) => {
         });
     })(req, res, next);
 };
+
+exports.logout = (req, res, next) => {
+    req.logout((err) => {
+        if(err){
+            console.error(err);
+            next(err);
+        }else{
+            res.redirect('/');
+        }
+    });
+}

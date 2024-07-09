@@ -2,6 +2,9 @@ const express = require('express');
 const {
   renderJoin, renderMain, login
 } = require('../controllers/page');
+const {
+  isLoggedIn, isNotLoggedIn
+} = require('../middleware/middleware');
 
 const router = express.Router();
 
