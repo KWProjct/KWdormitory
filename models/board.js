@@ -24,10 +24,6 @@ class Board extends Sequelize.Model{
                 type:Sequelize.STRING(200),
                 allowNull: true,
             },
-            createdAt: {
-                type: Sequelize.DATE,
-                allowNull: false,
-            },
             read: {
                 type: Sequelize.INTEGER,
                 allowNull: false,

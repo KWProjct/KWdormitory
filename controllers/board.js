@@ -1,11 +1,14 @@
 const { Board, User } = require('../models/');
+const dayjs = require("dayjs");
+
 
 exports.writeBoard = async(req, res, next) => {
     try{
         const {title, content, img} = req.body;
+        console.log(req.body);
         const user = req.user;
         if (!title || !content) {
-            res.status(400).send({ message: 'Title, content는 필수 입력 사항입니다.' });
+            res.status(400).send({ message: 'Title, Content는 필수 입력 사항입니다.' });
             return;
         }
         const write = await Board.create({

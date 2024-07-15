@@ -5,17 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-  <!--
-    <form action="/post/write" method="post">
-        <input type="text" placeholder="제목" name="title">
-        <input type="text" placeholder="내용" name="content">
-        <input type="submit" value="제출">
-    </form>
-    
-    {% for post in posts%}
-  -->
+<body onload="init">
+  <div class="board_list">
+    <table>
+        <thead>
+            <tr class="table_menu">
+                <th class="list_category">카테고리</th>
+                <th class="list_subject">제목</th>
+                <th class="list_writer">작성자</th>
+                <th class="list_date">작성일</th>
+                <th class="list_watch">조회수</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+            <tr class="table_list">
+                <td class="list_category">미정</td>
+                <td class="list_subject" id="list_subject">{{post.title}}</a></td>
+                <td class="list_writer" id="list_writer">{{post.writer}}</td>
+                <td class="list_date">{{post.createdAt}}</td>
+                <td class="list_watch">{{post.read}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/board/write"><button>글 쓰기</button></a>
+</div>
+</section>    
 <!--
+<a href="/boardRead?id={{board.id}}">
     <div class="twits">
         <form id="hashtag-form" action="/hashtag">
           <input type="text" name="hashtag" placeholder="태그 검색">
@@ -38,6 +56,12 @@
       </div>
     </div>
 -->
+    <script>
+      init = () => {
+        let date = document.querySelectorAll('.list_date').value;
+        console.log(date);
+      }
+    </script>
 </body>
 </html>
 
