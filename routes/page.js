@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  renderJoin, renderMain, login
+  renderJoin, renderMain, login, renderBoard
 } = require('../controllers/page');
 const {
   isLoggedIn, isNotLoggedIn
@@ -24,5 +24,8 @@ router.post('/jusopop', (req, res) => {
 });
 
 router.get('/login', login);
+
+router.get('/board', renderBoard);
+
 
 module.exports = router;

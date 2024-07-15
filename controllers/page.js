@@ -1,4 +1,5 @@
 //모델 불러오기
+const { Board, User } = require('../models/');
 
 exports.renderJoin = (req, res) => {
     res.render('join', {title: '회원 가입'});
@@ -6,7 +7,6 @@ exports.renderJoin = (req, res) => {
 
 exports.renderMain = (req, res, next) => {
     res.render('main', {title: '메인 페이지'});
-
 }
 /*
 exports.jusoPop = (req, res) => { 
@@ -40,4 +40,22 @@ exports.renderBoard1 = async (req, res, next) => {
 
 exports.login = (req, res) => {
     res.render('login');
+}
+
+exports.renderBoard = async(req, res, next) => {
+    try{
+        const board = await Board.findAll({
+            include:{
+                model: User,
+            },
+            order: [['createdAt', 'DESC']]
+        });
+        res.render('board', {
+            title: 'LeaderBoard',
+            posts: board,
+        });
+    }catch(err){
+        console.error(err);
+        next(err);
+    }
 }

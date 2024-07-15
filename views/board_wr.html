@@ -9,7 +9,38 @@
     <form action="/board/write" method="post">
         <input type="text" placeholder="제목" name="title">
         <input type="text" placeholder="내용" name="content">
+        <div class="img-preview">
+            <img id="img-preview" src="" style="display: none;" width="250" alt="미리보기">
+            <input id="img-url" name="url" type="hidden">
+        </div>
+        <div>
+            <label for="img">사진 업로드</label>
+            <input type="file" name="img" id="img" accept="image/">
+        </div>
         <input type="submit" value="제출">
     </form>
+    <script>
+        if (document.getElementById('img')) {
+            document.getElementById('img').addEventListener('change', function(e) {
+                const formData = new FormData();
+                console.log(this, this.files);
+                formData.append('img', this.files[0]);
+                axios.post('/post/img', formData)
+                .then((res) => {
+                    document.getElementById('img-url').value = res.data.url;
+                    document.getElementById('img-preview').src = res.data.url;
+                    document.getElementById('img-preview').style.display = 'inline';
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+            });
+        }
+    /*
+    내부함수는 일반 함수, 메소드, 콜백함수 어디에서 선언되었든 
+    관계없이 this는 전역객체를 바인딩한다
+
+    */
+    </script>
 </body>
 </html>
