@@ -25,7 +25,7 @@ exports.writeBoard = async(req, res, next) => {
         const write = await Board.create({
             title: req.body.title,        
             content: req.body.content,
-            //UserId: req.user.ID,
+            //writer: req.user.ID,
         });
         if (!title || !content) {
             res.status(400).send({ message: 'Title, content는 필수 입력 사항입니다.' });

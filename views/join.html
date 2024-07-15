@@ -10,6 +10,8 @@
         <br>
         <input type="text" name="pw" placeholder="password">
         <br>
+        <input type="text" name="nick" placeholder="닉네임">
+        <br>
         <input type='radio' name='gender' value="M" />남성
         <input type='radio' name='gender' value="F" />여성
         <br>
@@ -46,9 +48,10 @@
       target.value = target.value
      .replace(/[^0-9]/g, '')
      .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3").replace(/(\-{1,2})$/g, "");
-    }
+      }
+      var pop;
       function goPopup() {
-        var pop = window.open(
+        pop = window.open(
           '/jusopop',
           '주소 찾기',
           'width=570,height=420, scrollbars=yes, resizable=yes'
@@ -85,6 +88,7 @@
         document.form.roadAddrPart1.value = roadAddrPart1;
         document.form.addrDetail.value = addrDetail;
         document.form.zipNo.value = zipNo;
+        pop.close();
       }
     </script>
 {% endblock %}

@@ -3,17 +3,22 @@ const User = require('../models/user');
 const passport = require('passport');
 
 exports.join = async (req, res, next) => {
-    const {id, pw, gender, city, roomno, phone} = req.body;
-    console.log(id, pw, gender, city, roomno, phone);
+    const {id, pw, nick, gender, city, roomno, phone} = req.body;
+    console.log(id, pw, nick, gender, city, roomno, phone);
     try{
         const exUser = await User.findOne({where: {id}});
+        const exRoom = await User.findOne({where: {roomno}});
         if(exUser){
-            return res.redirect('/join?error=exist');
+            return res.redirect('/join?error=UserExist');
+        }
+        if(exRoom){
+            return res.redirect('/join?error=RoomDuplication');
         }
         const hash = await bcrypt.hash(pw, 12);
         await User.create({
             ID: id,
             PW: hash,
+            NICK: nick,
             ADD1: city,
             PHONE: phone,
             ROOMNO: roomno,

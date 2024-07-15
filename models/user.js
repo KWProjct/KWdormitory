@@ -19,6 +19,11 @@ class User extends Sequelize.Model{
                 allowNull: false,
                 unique: false,
             },
+            NICK: {
+                type:Sequelize.STRING(50),
+                allowNull: false,
+                unique: true,
+            },
             ADD1: {
                 type: Sequelize.STRING(100),
                 allowNull: false,
