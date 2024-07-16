@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body onload="init">
+<body>
   <div class="board_list">
     <table>
         <thead>
             <tr class="table_menu">
-                <th class="list_category">카테고리</th>
-                <th class="list_subject">제목</th>
-                <th class="list_writer">작성자</th>
-                <th class="list_date">작성일</th>
-                <th class="list_watch">조회수</th>
+                <th class="title_list_category">카테고리</th>
+                <th class="title_list_subject">제목</th>
+                <th class="title_list_writer">작성자</th>
+                <th class="title_list_date">작성일</th>
+                <th class="title_list_watch">조회수</th>
             </tr>
         </thead>
         <tbody>
@@ -56,11 +56,25 @@
       </div>
     </div>
 -->
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
     <script>
-      init = () => {
-        let date = document.querySelectorAll('.list_date').value;
-        console.log(date);
+      function formatDate(date) {
+        var temp = new Date(date),
+            month = '' + (temp.getMonth() + 1),
+            day = '' + temp.getDate(),
+            year = temp.getFullYear();
+
+        return [year, month, day].join('-');
       }
+
+      $(document).ready( () => {
+        let date = document.querySelectorAll('.list_date');
+        console.log(date);
+
+        date.forEach(createdAt => {
+          date.innerText = formatDate(createdAt.innerHTML);
+        });
+      })
     </script>
 </body>
 </html>

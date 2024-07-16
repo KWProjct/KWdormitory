@@ -6,7 +6,6 @@ class Board extends Sequelize.Model{
             BID: {
                 type: Sequelize.UUID,
                 allowNull: false,
-                defaultValue: Sequelize.UUIDV4,
             },
             title: {
                 type: Sequelize.STRING(100),

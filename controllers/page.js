@@ -23,7 +23,6 @@ exports.renderBoard1 = async (req, res, next) => {
         const board1 = await Board.findAll({
             include:{
                 model: User,
-                attributes: ['id', 'nick'],
             },
             order: [['createdAt', 'DESC']]
         });
@@ -47,6 +46,7 @@ exports.renderBoard = async(req, res, next) => {
         const board = await Board.findAll({
             include:{
                 model: User,
+                attributes: ['NICK'],
             },
             order: [['createdAt', 'DESC']]
         });
