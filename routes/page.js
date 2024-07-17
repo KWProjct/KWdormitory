@@ -1,6 +1,6 @@
 const express = require('express');
 const {
-  renderJoin, renderMain, login, renderBoard
+  renderJoin, renderMain, login, renderBoard, renderMyPage,
 } = require('../controllers/page');
 const {
   isLoggedIn, isNotLoggedIn
@@ -8,6 +8,10 @@ const {
 
 const router = express.Router();
 
+router.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 router.get('/join', renderJoin);
 
@@ -27,5 +31,6 @@ router.get('/login', login);
 
 router.get('/board', renderBoard);
 
+router.get('/mypage', renderMyPage);
 
 module.exports = router;

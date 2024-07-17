@@ -11,11 +11,16 @@
         <div class="title">
             <h1 onclick="location.href='/'">layout</h1>
         </div>
+        {% if user %}
         <div class="nav">
-            <a class="mypage" href="">마이페이지</a>
-            <a class="login" href="/login">로그인</a>
+            <a class="mypage" href="/mypage">마이페이지</a>
             <a>로그아웃</a>
         </div>
+        {% else %}
+        <div class="nav">
+          <a class="login" href="/login">로그인</a>
+      </div>
+        {% endif %}
     </div>
 
     {% block content %}

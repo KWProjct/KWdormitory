@@ -59,3 +59,7 @@ exports.renderBoard = async(req, res, next) => {
         next(err);
     }
 }
+
+exports.renderMyPage = (req, res) => {
+    res.render('mypage');
+}

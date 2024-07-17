@@ -48,7 +48,7 @@ exports.login = (req, res, next) => {
                 console.error(loginErr);
                 return next(loginErr);
             }
-            return res.status(201).send("로그인 성공");
+            return res.redirect('/');
         });
     })(req, res, next);
 };
