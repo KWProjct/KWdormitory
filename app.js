@@ -25,6 +25,13 @@ nunjucks.configure('views', {
   watch: true,
 });
 
+const dayjs = require("dayjs");
+ 
+app.locals.formatDate = (date) => {
+  return dayjs(date).format("YYYY-MM-DD HH:mm:ss"); // 특정 포맷으로 변환
+};
+
+
 sequelize.sync({ force: false })
   .then(() => {
     console.log('데이터베이스 연결 성공');

@@ -13,7 +13,7 @@ exports.writeBoard = async(req, res, next) => {
         }
         console.log(user);
         const write = await Board.create({
-            BID: user.UID,
+            user_id: user.ID,
             title: title,        
             content: content,
             img: img,

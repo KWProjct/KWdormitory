@@ -5,10 +5,15 @@ class Board extends Sequelize.Model{
         Board.init({
             BID: {
                 type: Sequelize.UUID,
+                defaultValue: Sequelize.UUIDV4,
                 allowNull: false,
             },
             title: {
                 type: Sequelize.STRING(100),
+                allowNull: false,
+            },
+            user_id:{
+                type: Sequelize.STRING(15),
                 allowNull: false,
             },
             content: {
@@ -45,7 +50,7 @@ class Board extends Sequelize.Model{
     }
 
     static associate(db){
-        db.Board.belongsTo(db.User,{foreignkey: 'BID', targetKey: 'UID'});
+        db.Board.belongsTo(db.User,{foreignkey: 'user_id', targetKey: 'ID'});
     }
 };
 

@@ -6,12 +6,13 @@ class User extends Sequelize.Model{
             UID: {
               type: Sequelize.UUID,
               defaultValue: Sequelize.UUIDV4,
-              primaryKey: true,
               allowNull: false,
             },
             ID: {
               type: Sequelize.STRING(15),
               allowNull: false,
+              primaryKey: true,
+
               unique: true,
             },
             PW: {
