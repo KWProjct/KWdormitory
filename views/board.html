@@ -15,7 +15,7 @@
         <tbody>
             {% for post in posts %}
             <tr class="table_list">
-                <td class="list_subject" id="list_subject"><a href="">{{post.title}}</a></td>
+                <td class="list_subject" id="list_subject"><a href="/board/{{post.BID}}">{{post.title}}</a></td>
                 <td class="list_writer" id="list_writer">{{post.writer}}</td>
                 <td class="list_date">{{post.createdAt}}</td>
                 <td class="list_watch">{{post.read}}</td>

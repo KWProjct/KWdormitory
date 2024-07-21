@@ -63,3 +63,5 @@ exports.renderBoard = async(req, res, next) => {
 exports.renderMyPage = (req, res) => {
     res.render('mypage');
 }
+
+//res.send(`<script type="text/javascript">alert("${docs[0].name} 님 안녕하세요!"); window.location = document.referrer; </script>`);

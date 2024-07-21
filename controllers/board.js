@@ -32,4 +32,10 @@ exports.renderBoardwrite = (req, res, next) => {
 
 }
 
+exports.renderPost = async(req, res, next) => {
+    url = req.params.id;
+    console.log(url);
+    detailpost = await Board.findOne({where: {BID: url}});
+    res.render('boardview', {post: detailpost});
+}
 //res.send("<script>alert('No matching article.'); window.location.href = '/board';</script>");
