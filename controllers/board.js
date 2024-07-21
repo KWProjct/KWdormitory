@@ -39,3 +39,16 @@ exports.renderPost = async(req, res, next) => {
     res.render('boardview', {post: detailpost});
 }
 //res.send("<script>alert('No matching article.'); window.location.href = '/board';</script>");
+
+exports.changePost = async(req, res, next) => {
+    const type = req.params.type;
+    const id = req.params.id;
+    if(type == 'delete'){
+        await Board.destroy({where: {BID: id}});
+        res.redirect('/board');
+    }else if (type == 'update'){
+        
+    }
+
+}
+

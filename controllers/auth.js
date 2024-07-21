@@ -9,10 +9,10 @@ exports.join = async (req, res, next) => {
         const exUser = await User.findOne({where: {id}});
         const exRoom = await User.findOne({where: {roomno}});
         if(exUser){
-            return res.redirect('/join?error=UserExist');
+            return res.send(`<script type="text/javascript">alert("이미 존재하는 아이디입니다."); window.location = document.referrer;</script>`);
         }
         if(exRoom){
-            return res.redirect('/join?error=RoomDuplication');
+            return res.send(`<script type="text/javascript">alert("이미 존재하는 닉네임입니다."); window.location = document.referrer;</script>`);
         }
         const hash = await bcrypt.hash(pw, 12);
         await User.create({

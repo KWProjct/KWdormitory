@@ -60,8 +60,18 @@ exports.renderBoard = async(req, res, next) => {
     }
 }
 
-exports.renderMyPage = (req, res) => {
-    res.render('mypage');
+exports.renderMyPage = async(req, res, next) => {
+    try{
+        const user = req.user;
+        console.log(user);
+        written = await Board.findAll({where: {user_id: user.ID}});
+        res.render('mypage', {
+            posts: written,
+        });
+    }catch(error){
+        console.error(error);
+        next(error);
+    }
 }
 
 //res.send(`<script type="text/javascript">alert("${docs[0].name} 님 안녕하세요!"); window.location = document.referrer; </script>`);

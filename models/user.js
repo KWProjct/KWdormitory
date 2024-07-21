@@ -46,6 +46,11 @@ class User extends Sequelize.Model{
             GENDER: {
               type: Sequelize.ENUM("M", 'F'),
               allowNull: false,
+            },
+            QUALIFY: {
+              type: Sequelize.ENUM("A", "M"),
+              allowNull: false,
+              defaultValue: "M",
             }
             
           }, {

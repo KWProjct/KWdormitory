@@ -8,5 +8,13 @@
     <p>{{post.writer}}</p>
     <img src="{{post.img}}" alt="{{post.img}}">
     <p>{{post.read}}</p>
+    <div>
+        <form action="/delete/{{post.BID}}" method="post" style="float: left;">
+            <input type="submit" value="삭제">
+        </form>
+        <form action="/update/{{post.BID}}" method = "post">
+            <input type="submit" value="수정">
+        </form>
+    </div>
 </div>
 {% endblock %}
