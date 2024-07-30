@@ -43,8 +43,12 @@ exports.renderPost = async(req, res, next) => {
 exports.changePost = async(req, res, next) => {
     const type = req.params.type;
     const id = req.params.id;
+    console.log(`타입 ${type} id ${id}`);
     if(type == 'delete'){
         await Board.destroy({where: {BID: id}});
+        await Board.update({del_yn: 'Y'}, {where: {BID: id}});
+        //force: true 옵션을 추가하는 경우 완전한 삭제가 가능.
+        //	where: {id: 1}, force: true,
         res.redirect('/board');
     }else if (type == 'update'){
         
