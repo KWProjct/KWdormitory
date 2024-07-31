@@ -52,3 +52,7 @@ exports.changePost = async(req, res, next) => {
 
 }
 
+exports.uploadBoard = (req, res) => {
+    console.log(req.file);
+    res.json({url: `/img/${req.file.filename}`});
+};
