@@ -40,8 +40,7 @@ exports.login = (req, res, next) => {
             next(err);
         }
         if(info){
-            console.log(info);
-            return res.status(401).send(info.message);
+            return res.status(401).send(`<script type="text/javascript">alert("존재하지 않는 아이디입니다."); window.location = document.referrer;</script>`);
         }
         return req.login(user, (loginErr) => {
             if(loginErr){
@@ -62,4 +61,4 @@ exports.logout = (req, res, next) => {
             res.redirect('/');
         }
     });
-}
+};

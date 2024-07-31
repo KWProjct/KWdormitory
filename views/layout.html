@@ -18,7 +18,9 @@
             </a>
           {% if user %}
               <a class="mypage" href="/mypage">마이페이지</a>
-              <a>로그아웃</a>
+              <form action="post">
+                <a href="/logout">로그아웃</a>
+              </form>
           {% else %}
             <a class="login" href="/login">로그인</a>
           {% endif %}
