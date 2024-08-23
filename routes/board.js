@@ -1,10 +1,13 @@
 const express = require('express');
 const {
-  writeBoard, renderBoardwrite, renderPost, uploadBoard,
+  writeBoard, renderBoardwrite, renderPost, uploadBoard, changePost, 
 } = require('../controllers/board');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
+
+const router = express.Router();
+
 
 try{
   fs.readdirSync('uploads');
@@ -26,13 +29,11 @@ const uploads = multer({
   limits: {fileSize: 5 * 1024 * 1024}
 });
 
-const router = express.Router();
-
-router.post('/img', uploads.single('img'), writeBoard);
+router.post('/img', uploads.single('img'), uploadBoard);
 
 const upload2 = multer();
 
-router.post('/write', upload2.none(), uploadBoard);
+router.post('/write', upload2.none(), writeBoard);
 
 router.get('/write', renderBoardwrite);
 
