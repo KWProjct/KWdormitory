@@ -72,7 +72,7 @@ exports.renderPost = async(req, res, next) => {
         })
         // 조회수 증가 쿼리
         await board.updateOne({ boardId }, { $inc: {'viewCount': 1}})
-    }
+        }
 
         */
     }
