@@ -3,7 +3,19 @@
 {% block content %}
 
 <div>
-    {{user.NICK}}
+    <div style="width: 70vh;">
+        <div style="float: left;">
+            {% if {{user.IMG}} %}
+                <img src="" alt="프로필 사진">
+            {% else %}
+                <img src="{{user.IMG}}" alt="프로필 사진">
+            {% endif %}
+        </div>
+        <div style="float: right;">
+            {{user.NICK}}
+        </div>
+    </div>
+    <br><br><br><br>
     <div id="written">
         {% for post in posts %}
         <table>

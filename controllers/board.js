@@ -4,19 +4,18 @@ const viewUser = new Object();
 
 exports.writeBoard = async(req, res, next) => {
     try{
-        const {title, content, img} = req.body;
-        console.log(req.body);
+        const {title, content, url} = req.body;
+        console.log("작성된 바디 값:", req.body);
         const user = req.user;
         if (!title || !content) {
             res.status(400).send({ message: 'Title, Content는 필수 입력 사항입니다.' });
             return;
         }
-        console.log(user);
         const write = await Board.create({
             user_id: user.ID,
             title: title,        
             content: content,
-            img: img,
+            img: url[0],
             writer: user.NICK,
         });
         
